@@ -13,7 +13,7 @@ export function Contacts() {
   ].filter(Boolean) as { icon: typeof MapPin; label: string; value: string; href?: string }[];
 
   return (
-    <section id="contacts" className="bg-emerald-deep py-20 sm:py-28">
+    <section id="contacts" className="bg-forest py-20 sm:py-28">
       <div className="container-x grid gap-12 lg:grid-cols-2">
         <div>
           <Reveal><SectionHeading eyebrow="Контакты" title="Ждём вас в гости!" /></Reveal>

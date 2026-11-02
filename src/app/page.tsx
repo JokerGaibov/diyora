@@ -3,7 +3,6 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Menu } from "@/components/sections/Menu";
-import { Gallery } from "@/components/sections/Gallery";
 import { Contacts } from "@/components/sections/Contacts";
 import { siteConfig } from "@/data/site-config";
 
@@ -27,7 +26,6 @@ export default function Home() {
         <Hero />
         <About />
         <Menu />
-        <Gallery />
         <Contacts />
       </main>
       <Footer />

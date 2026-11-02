@@ -1,6 +1,6 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Photo } from "@/components/ui/Placeholder";
+import { BrandPoster } from "@/components/ui/BrandPoster";
 
 export function About() {
   return (
@@ -8,8 +8,7 @@ export function About() {
       <div className="container-x grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <Reveal>
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] rounded-tr-[6rem] border border-brown/10 shadow-xl shadow-brown/10">
-            {/* Фото интерьера: передать src, когда будет реальное фото кафе */}
-            <Photo alt="Интерьер кафе" label="Фото интерьера" />
+            <BrandPoster />
           </div>
         </Reveal>
         <div>

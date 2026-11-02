@@ -24,7 +24,6 @@ export const nav = [
   { id: "home", label: "Главная" },
   { id: "about", label: "О нас" },
   { id: "menu", label: "Меню" },
-  { id: "gallery", label: "Галерея" },
   { id: "contacts", label: "Контакты" },
 ];
 

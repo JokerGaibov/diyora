@@ -27,7 +27,7 @@ export const menu: MenuItem[] = [
   { id: "salad-vitaminny", name: "Салат «Витаминный»", category: "Салаты", price: 150, image: "/images/menu/salad-vitaminny.d285f90d.webp" },
   { id: "carrot-korean", name: "Морковь по-корейски", category: "Салаты", price: 150, image: "/images/menu/carrot-korean.6692f08d.webp" },
   { id: "kimchi", name: "Кимчи", category: "Салаты", price: 170, image: "/images/menu/kimchi.5cec6386.webp" },
-  { id: "salad-fresh-veg", name: "Свежий овощной салат", category: "Салаты", price: 200, image: "/images/menu/salad-fresh-veg.1e6dd887.webp" },
+  { id: "salad-fresh-veg", name: "Свежий овощной салат", category: "Салаты", price: 200, image: "/images/menu/salad-fresh-veg.6597fb49.webp" },
   { id: "salad-zimny", name: "Салат «Зимний»", category: "Салаты", price: 200, image: "/images/menu/salad-zimny.43268cfd.webp" },
   { id: "herring-fur-coat", name: "Сельдь под шубой", category: "Салаты", price: 220, image: "/images/menu/herring-fur-coat.13967204.webp" },
   { id: "caesar-chicken", name: "Цезарь с курицей", category: "Салаты", price: 250, image: "/images/menu/caesar-chicken.77e30b3f.webp" },
@@ -43,7 +43,7 @@ export const menu: MenuItem[] = [
 
   // Шашлыки и гриль
   { id: "lyulya-beef", name: "Люля-кебаб из говядины", category: "Шашлыки и гриль", price: 270, image: "/images/menu/lyulya-beef.8b30017f.webp" },
-  { id: "shashlik-chicken-fillet", name: "Шашлык из куриного филе", category: "Шашлыки и гриль", price: 270, image: "/images/menu/shashlik-chicken-fillet.a0ff2715.webp" },
+  { id: "shashlik-chicken-fillet", name: "Шашлык из куриного филе", category: "Шашлыки и гриль", price: 270, image: "/images/menu/shashlik-chicken-fillet.136df190.webp" },
   { id: "shashlik-chicken-wings", name: "Шашлык из куриных крыльев", category: "Шашлыки и гриль", price: 270, image: "/images/menu/shashlik-chicken-wings.1c640384.webp" },
   { id: "shashlik-beef", name: "Шашлык из говядины", category: "Шашлыки и гриль", price: 400, image: "/images/menu/shashlik-beef.67c5875a.webp" },
   { id: "shashlik-lamb", name: "Шашлык из баранины", category: "Шашлыки и гриль", price: 420, image: "/images/menu/shashlik-lamb.55b412fc.webp" },
@@ -52,7 +52,7 @@ export const menu: MenuItem[] = [
   { id: "shashlik-beef-liver", name: "Шашлык из говяжьей печени", category: "Шашлыки и гриль", price: 270, image: "/images/menu/shashlik-beef-liver.9c0849ff.webp" },
 
   // Гарниры
-  { id: "fries", name: "Картофель фри", category: "Гарниры", price: 150, image: "/images/menu/fries.5cb15fac.webp" },
+  { id: "fries", name: "Картофель фри", category: "Гарниры", price: 150, image: "/images/menu/fries.9f71df55.webp" },
   { id: "mashed-potato", name: "Картофельное пюре", category: "Гарниры", price: 170, image: "/images/menu/mashed-potato.85250282.webp" },
   { id: "pasta", name: "Макароны", category: "Гарниры", price: 150, image: "/images/menu/pasta.6b719ac0.webp" },
   { id: "buckwheat", name: "Гречка", category: "Гарниры", price: 150, image: "/images/menu/buckwheat.f82e8d55.webp" },

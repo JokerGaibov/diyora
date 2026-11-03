@@ -1,15 +1,17 @@
-import { Clock, MapPin, MessageCircle, Navigation, Phone } from "lucide-react";
+import Image from "next/image";
+import { Clock, MapPin, MessageCircle, Navigation, Phone, Send } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { phoneHref, routeHref, siteConfig, waHref } from "@/data/site-config";
 
 export function Contacts() {
-  const { phone, whatsapp, address, hours, socials, coords, city, fullName } = siteConfig;
+  const { phone, whatsapp, address, hours, socials, telegram, coords, city, fullName } = siteConfig;
   const rows = [
     { icon: MapPin, label: "Город", value: address ? `${city}, ${address}` : city },
     hours && { icon: Clock, label: "Режим работы", value: hours },
     phone && { icon: Phone, label: "Телефон", value: phone, href: phoneHref(phone) },
+    telegram.href && { icon: Send, label: "Telegram", value: telegram.handle, href: telegram.href },
   ].filter(Boolean) as { icon: typeof MapPin; label: string; value: string; href?: string }[];
 
   return (
@@ -35,8 +37,17 @@ export function Contacts() {
               <Button href={siteConfig.twoGis} external><MapPin className="size-4" /> Открыть в 2ГИС</Button>
               <Button href={routeHref} external variant="outline"><Navigation className="size-4" /> Построить маршрут</Button>
               {phone && <Button href={phoneHref(phone)} variant="outline"><Phone className="size-4" /> Позвонить</Button>}
+              {telegram.href && <Button href={telegram.href} external variant="outline"><Send className="size-4" /> Написать в Telegram</Button>}
               {whatsapp && <Button href={waHref(whatsapp)} external variant="outline"><MessageCircle className="size-4" /> Написать в WhatsApp</Button>}
             </div>
+            {telegram.qr && (
+              <div className="mt-10 flex items-center gap-5">
+                <a href={telegram.href} target="_blank" rel="noopener noreferrer" aria-label="Открыть Telegram" className="shrink-0 rounded-2xl bg-white p-3 transition-transform hover:scale-[1.03]">
+                  <Image src={telegram.qr} alt={`QR-код Telegram ${telegram.handle}`} width={132} height={150} className="h-auto w-[132px]" />
+                </a>
+                <p className="max-w-[14rem] text-sm leading-relaxed text-cream/65">Наведите камеру телефона на QR-код, чтобы написать нам в Telegram.</p>
+              </div>
+            )}
           </Reveal>
         </div>
 

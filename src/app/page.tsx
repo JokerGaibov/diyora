@@ -6,13 +6,14 @@ import { Menu } from "@/components/sections/Menu";
 import { Contacts } from "@/components/sections/Contacts";
 import { siteConfig } from "@/data/site-config";
 
-// Schema.org только с проверенными данными (без телефона, цен и часов)
+// Schema.org только с проверенными данными (без цен и часов)
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Restaurant",
   name: siteConfig.fullName,
   servesCuisine: ["Восточная"],
   url: siteConfig.url,
+  ...(siteConfig.phone && { telephone: siteConfig.phone }),
   hasMap: siteConfig.twoGis,
   address: { "@type": "PostalAddress", addressLocality: siteConfig.city, addressRegion: siteConfig.region, addressCountry: "RU" },
   geo: { "@type": "GeoCoordinates", latitude: siteConfig.coords.lat, longitude: siteConfig.coords.lon },

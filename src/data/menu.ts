@@ -42,7 +42,7 @@ export const menu: MenuItem[] = [
   { id: "coffee-black", name: "Кофе чёрный", category: "Напитки", price: 50, volume: "0,2 л", image: "/images/menu/coffee-black.7729cc7b.webp", description: "Насыщенный кофейный вкус, выразительный аромат и приятная бодрость в каждой чашке.", descriptionVerified: false },
   { id: "compote", name: "Компот", category: "Напитки", price: 70, volume: "0,2 л", image: "/images/menu/compote.4887e3a0.webp", description: "Лёгкий, освежающий напиток с мягким фруктовым вкусом.", descriptionVerified: false },
   { id: "ayran", name: "Айран", category: "Напитки", price: 80, volume: "0,2 л", image: "/images/menu/ayran.21e996ff.webp", description: "Освежающий кисломолочный напиток с нежным вкусом и лёгкой кислинкой.", descriptionVerified: false },
-  { id: "tea-samarkand", name: "Чай «Самарканд»", category: "Напитки", price: 300, volume: "Чайник", image: "/images/menu/tea-samarkand.37a39c42.webp", description: "Ароматный чай с восточным характером, созданный для неспешного чаепития.", descriptionVerified: false },
+  { id: "tea-samarkand", name: "Чай «Марокканд»", category: "Напитки", price: 300, volume: "Чайник", image: "/images/menu/tea-morocco.9c803c55.webp", description: "Ароматный чай с яркими восточными нотками, приятной свежестью и насыщенным вкусом.", descriptionVerified: false },
 
   // Шашлыки и гриль
   { id: "lyulya-beef", name: "Люля-кебаб из говядины", category: "Шашлыки и гриль", price: 270, weight: 160, weightNote: "в сыром виде", image: "/images/menu/lyulya-beef.8b30017f.webp", description: "Сочная рубленая говядина с луком и специями, приготовленная на гриле до румяной корочки.", descriptionVerified: false },

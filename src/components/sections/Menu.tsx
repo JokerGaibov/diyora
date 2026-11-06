@@ -10,26 +10,31 @@ const ALL = "Все блюда";
 const PAGE_SIZE = 12; // сколько карточек показывать во вкладке «Все блюда» до нажатия «Показать ещё»
 
 function Card({ item }: { item: MenuItem }) {
+  // «180 г» или «180 г · в сыром виде»; для блюд без веса и объёма ничего не показываем
+  const weight = item.weight !== undefined ? [`${item.weight} г`, item.weightNote].filter(Boolean).join(" · ") : undefined;
+  const meta = [item.volume, weight].filter(Boolean).join(" · ");
   return (
-    <li className="group flex flex-col overflow-hidden rounded-2xl border border-gold/15 bg-forest/50 transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-gold/40">
+    <li className="group flex flex-col rounded-3xl bg-cream p-2.5 text-emerald-deep shadow-md shadow-black/20 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/35 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
       {/* Фото показываем только если оно задано; иначе карточка текстовая */}
       {item.image && (
-        <div className="relative aspect-[4/3] overflow-hidden">
-          <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-105">
-            <Photo src={item.image} alt={item.name} sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw" />
+        <div className="relative aspect-[5/3] overflow-hidden rounded-2xl">
+          <div className="absolute inset-0 transition-transform duration-300 group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100">
+            <Photo src={item.image} alt={item.name} sizes="(min-width:1024px) 33vw, (min-width:480px) 50vw, 100vw" />
           </div>
+          {/* Вес/объём поверх фото: небольшой полупрозрачный бейдж в нижнем левом углу */}
+          {meta && <span className="absolute bottom-2.5 left-2.5 rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-cream backdrop-blur-sm">{meta}</span>}
         </div>
       )}
-      <div className="flex flex-1 flex-col justify-between gap-3 p-4 sm:p-5">
-        <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/70">{item.category}</p>
-          <h3 className="h-display mt-1.5 text-xl leading-tight sm:text-2xl">{item.name}</h3>
-          {item.description && <p className="mt-2 text-sm leading-relaxed text-cream/65">{item.description}</p>}
+      <div className="flex flex-1 flex-col px-2.5 pb-2 pt-3.5 sm:px-3">
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="h-display line-clamp-2 min-w-0 text-xl leading-tight sm:text-2xl">{item.name}</h3>
+          {item.price !== undefined
+            ? <span className="shrink-0 pt-0.5 font-semibold tabular-nums text-[#8a6a2f]">{item.price} ₽</span>
+            : <span className="shrink-0 pt-1 text-xs text-[#667463]">Цена уточняется</span>}
         </div>
-        <div className="flex items-end justify-between gap-2 border-t border-gold/10 pt-3">
-          <span className="text-xs text-cream/60">{item.volume}</span>
-          <span className="font-semibold text-gold">{item.price} ₽</span>
-        </div>
+        {/* Без фото вес/объём показываем под названием */}
+        {!item.image && meta && <p className="mt-1.5 text-xs font-medium text-[#667463]">{meta}</p>}
+        {item.description && <p className="mt-2 line-clamp-3 text-[13px] font-light leading-normal text-[#667463]">{item.description}</p>}
       </div>
     </li>
   );

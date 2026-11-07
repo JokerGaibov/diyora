@@ -4,9 +4,11 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Photo } from "@/components/ui/Placeholder";
 import { categories, menu, type MenuItem } from "@/data/menu";
+import { StreetFoodSection } from "@/components/menu/StreetFoodSection";
 import { cn } from "@/lib/utils";
 
 const ALL = "Все блюда";
+const STREET = "Стритфуд"; // отдельные данные в src/data/streetfood.ts, не входят в массив menu
 const PAGE_SIZE = 12; // сколько карточек показывать во вкладке «Все блюда» до нажатия «Показать ещё»
 
 function Card({ item }: { item: MenuItem }) {
@@ -44,6 +46,7 @@ export function Menu() {
   const [cat, setCat] = useState<string>(ALL);
   const [expanded, setExpanded] = useState(false);
 
+  const street = cat === STREET;
   const filtered = cat === ALL ? menu : menu.filter((m) => m.category === cat);
   const limited = cat === ALL && !expanded;
   const list = limited ? filtered.slice(0, PAGE_SIZE) : filtered;
@@ -54,15 +57,19 @@ export function Menu() {
         <Reveal><SectionHeading eyebrow="Меню" title="Восточная кухня" /></Reveal>
 
         <div role="tablist" aria-label="Категории меню" className="-mx-5 mt-8 flex gap-2 overflow-x-auto px-5 pb-2 md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
-          {[ALL, ...categories].map((c) => (
+          {[ALL, ...categories, STREET].map((c) => (
             <button key={c} type="button" role="tab" aria-selected={cat === c} onClick={() => setCat(c)}
               className={cn("min-h-11 shrink-0 rounded-full border px-5 text-sm transition-colors", cat === c ? "border-gold bg-gold text-brown" : "border-cream/25 text-cream/80 hover:border-gold/60")}>{c}</button>
           ))}
         </div>
 
-        <ul className="mt-8 grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-          {list.map((m) => <Card key={m.id} item={m} />)}
-        </ul>
+        {street ? (
+          <div className="mt-8"><StreetFoodSection /></div>
+        ) : (
+          <ul className="mt-8 grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+            {list.map((m) => <Card key={m.id} item={m} />)}
+          </ul>
+        )}
 
         {cat === ALL && filtered.length > PAGE_SIZE && (
           <div className="mt-10 text-center">
@@ -70,6 +77,14 @@ export function Menu() {
               className="inline-flex min-h-12 items-center rounded-full border border-gold/60 px-8 font-semibold text-gold transition-colors hover:bg-gold hover:text-brown">
               {expanded ? "Свернуть" : `Показать ещё (${filtered.length - PAGE_SIZE})`}
             </button>
+          </div>
+        )}
+
+        {cat === ALL && (
+          <div className="mt-16">
+            <h3 className="h-display text-3xl text-cream sm:text-4xl">Стритфуд</h3>
+            <p className="mt-2 mb-6 text-sm text-cream/70">Шаурма, закрытая пицца и донер — выберите вариант прямо в карточке.</p>
+            <StreetFoodSection />
           </div>
         )}
       </div>

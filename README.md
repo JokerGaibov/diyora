@@ -4,6 +4,18 @@
 
 **Живой сайт:** https://diyora-mu.vercel.app
 
+## Скриншоты
+
+![Главная](docs/screenshots/desktop-hero.png)
+
+| О нас | Меню |
+| --- | --- |
+| ![О нас](docs/screenshots/desktop-about.png) | ![Меню](docs/screenshots/desktop-menu.png) |
+
+Мобильная версия:
+
+<img src="docs/screenshots/mobile-hero.png" width="280" alt="Мобильная версия">
+
 ## Стек
 
 - Next.js 16 (App Router) + React 19
